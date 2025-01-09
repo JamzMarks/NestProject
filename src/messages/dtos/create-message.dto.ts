@@ -1,7 +1,9 @@
-import { IsString } from "class-validator"
+import { IsString } from "class-validator";
+
+
 
 export class createMessageDto {
     
     @IsString()
-    constent: string
+    content: string
 }
