@@ -1,14 +1,6 @@
 ### List all messages
-GET http://localhost:3000/messages
+GET http://localhost:3000/app
 
+### GET ANOTHER
+GET http://localhost:3000/app2
 
-### Create a new messages
-POST http://localhost:3000/messages
-content-type: application/json 
-
-{
-    "content": "Hi there"
-}
-
-### List a particular message
-GET http://localhost:3000/messages/915
