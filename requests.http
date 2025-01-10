@@ -1,6 +1,7 @@
 ### List all messages
 GET http://localhost:3000/messages
 
+
 ### Create a new messages
 POST http://localhost:3000/messages
 content-type: application/json 
@@ -10,4 +11,4 @@ content-type: application/json
 }
 
 ### List a particular message
-GET http://localhost:3000/messages/882
+GET http://localhost:3000/messages/915
