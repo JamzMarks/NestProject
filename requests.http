@@ -4,3 +4,40 @@ GET http://localhost:3000/app
 ### GET ANOTHER
 GET http://localhost:3000/app2
 
+### Post Signup
+
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "email": "email@mail.com",
+    "password": "abalacada"
+}
+### Post Signup
+
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "email": "test@mail.com",
+    "password": "sadasd"
+}
+
+
+### Find User by id
+GET http://localhost:3000/auth/323
+
+### Find all users with a given email
+GET http://localhost:3000/auth?email=email@mail.com
+
+### Delete user with a given id
+DELETE  http://localhost:3000/auth/2
+
+### Update user properties with a given id
+PATCH  http://localhost:3000/auth/5
+Content-Type: application/json
+
+{
+    "email": "testAtualizado@mail.com"
+}
+

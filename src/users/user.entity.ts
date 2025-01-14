@@ -1,5 +1,5 @@
-import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
-
+import {Entity, Column, PrimaryGeneratedColumn, AfterInsert } from 'typeorm';
+import { Exclude } from 'class-transformer';
 @Entity()
 export class User{
     @PrimaryGeneratedColumn()
@@ -11,6 +11,8 @@ export class User{
     @Column()
     password: string;
 
-
-
+    @AfterInsert()
+    logInsert(){
+        console.log('User insert into database')
+    }
 }
