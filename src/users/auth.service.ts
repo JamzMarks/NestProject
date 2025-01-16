@@ -29,7 +29,7 @@ export class AuthService{
             //Create a new user and save it
             const user = await this.usersService.create(email, hashedPassword);
             //Return the user
-            return user
+            return user;
     }
     
     async signin(email: string, password: string){
