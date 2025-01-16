@@ -4,3 +4,65 @@ GET http://localhost:3000/app
 ### GET ANOTHER
 GET http://localhost:3000/app2
 
+### Post Signup
+
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "email": "auth@mail.com",
+    "password": "authpassword"
+}
+### Post Signin
+
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "email": "auth@mail.com",
+    "password": "authpassword"
+}
+
+
+### Find User by id
+GET http://localhost:3000/auth/1
+
+### Find all users with a given email
+GET http://localhost:3000/auth?email=email@mail.com
+
+### Delete user with a given id
+DELETE  http://localhost:3000/auth/4
+
+### Update user properties with a given id
+PATCH  http://localhost:3000/auth/5
+Content-Type: application/json
+
+{
+    "email": "testAtualizado@mail.com"
+}
+
+### Update user properties with a given id
+
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "email": "cookie@mail.com",
+    "password": "cookiepass"
+}
+### Sign in as an existing user
+
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "email": "cookie@mail.com",
+    "password": "cookiepass"
+}
+
+### Who am I
+GET http://localhost:3000/auth/whoami
+
+### Signout
+POST http://localhost:3000/auth/signout
+
