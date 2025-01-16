@@ -13,6 +13,6 @@ export class User{
 
     @AfterInsert()
     logInsert(){
-        console.log('User insert into database')
+        console.log('User inserted into database')
     }
 }
