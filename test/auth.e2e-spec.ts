@@ -16,7 +16,7 @@ describe('Auth Controller (2e2)', () => {
     });
 
     it('Handles a signup reques', () => {
-        let email = 'ads@asdas.com'
+        let email = 'atasdad@asdas.com'
         return request(app.getHttpServer())
             .post('/auth/signup')
             .send({email, password: 'asdasd'})
