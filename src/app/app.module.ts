@@ -6,9 +6,13 @@ import { AppController } from './app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from 'src/users/user.entity';
 import { Reports } from 'src/reports/reports.entity';
-
+import { ConfigModule, ConfigService } from '@nestjs/config';
 @Module({
     imports: [
+        ConfigModule.forRoot({
+            isGlobal: true,
+            envFilePath: `.env.${process.env.NODE_ENV}`
+        }),
         UsersModule, 
         ReportsModule,
         TypeOrmModule.forRoot({
