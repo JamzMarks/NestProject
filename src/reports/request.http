@@ -1,0 +1,16 @@
+POST http://localhost:3000/reports
+Content-Type: application/json
+
+{
+    "price": 200,
+    "make": "Ford",
+    "model": "Focus",
+    "year": 2024,
+    "lng": 1,
+    "lat": 1,
+    "mileage": 200
+}
+
+### GET Report by id
+
+### Get all Reports
