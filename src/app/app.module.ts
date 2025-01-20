@@ -5,10 +5,9 @@ import { UsersModule } from 'src/users/users.module';
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from 'src/users/user.entity';
-import { Reports } from 'src/reports/reports.entity';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 const cookieSession = require('cookie-session');
+import { AppDataSource } from 'src/data-source';
 @Module({
     imports: [
         ConfigModule.forRoot({
@@ -18,16 +17,21 @@ const cookieSession = require('cookie-session');
         UsersModule, 
         ReportsModule,
         TypeOrmModule.forRootAsync({
-            inject: [ConfigService],
-            useFactory: (config: ConfigService) => {
-                return {
-                    type: 'sqlite',
-                    database: config.get<string>('DB_NAME'),
-                    synchronize: true,
-                    entities: [User, Reports]
-                }
-            }
-        })
+            useFactory: () => ({
+                ...AppDataSource.options, // Use as opções do AppDataSource
+            }),
+        }),
+        // TypeOrmModule.forRootAsync({
+        //     inject: [ConfigService],
+        //     useFactory: (config: ConfigService) => {
+        //         return {
+        //             type: 'sqlite',
+        //             database: config.get<string>('DB_NAME'),
+        //             synchronize: true,
+        //             entities: [User, Reports]
+        //         }
+        //     }
+        // })
         // TypeOrmModule.forRoot({
         //     type: 'sqlite',
         //     database: 'db.sqlite',
@@ -46,9 +50,10 @@ const cookieSession = require('cookie-session');
     controllers: [AppController]
 })
 export class AppModule {
+    constructor(private configService: ConfigService){}
     configure(consumer: MiddlewareConsumer){
         consumer.apply(cookieSession({
-            keys: ['asdfa']
+            keys: [this.configService.get('COOKIE_KEY')]
           })).forRoutes('*')
     }
 }
