@@ -3,8 +3,8 @@ Content-Type: application/json
 
 {
     "price": 200,
-    "make": "Ford",
-    "model": "Focus",
+    "make": "chev",
+    "model": "gol",
     "year": 2024,
     "lng": 1,
     "lat": 1,
@@ -14,3 +14,11 @@ Content-Type: application/json
 ### GET Report by id
 
 ### Get all Reports
+
+### Patch approved
+PATCH http://localhost:3000/reports/4
+Content-Type: application/json
+
+{
+    "approved": true
+}
